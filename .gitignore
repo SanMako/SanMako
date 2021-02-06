@@ -6,3 +6,8 @@
 /Sdk/security-sdk/security-sdk.iml
 /Sdk/security-sdk/security-sdk-tool/security-sdk-tool.iml
 /Communal/smk-base/smk-base.iml
+/Sdk/security-sdk/security-sdk-tool/target/
+/Sdk/security-sdk/security-sdk-crypto/target/
+/Sdk/security-sdk/security-sdk-core/target/
+
+/Communal/smk-base/target/classes/com/smk/cpp/base/
