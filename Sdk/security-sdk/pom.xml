@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.smk.cpp</groupId>
+        <artifactId>smk-security-parent</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>security-sdk</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>security-sdk</name>
+    <description>安全sdk</description>
+
+    <modules>
+        <module>security-sdk-core</module>    <!-- 安全sdk核心包 -->
+        <module>security-sdk-crypto</module>  <!-- 安全sdk加密解密 -->
+        <module>security-sdk-tool</module>    <!-- 安全sdk工具包 -->
+    </modules>
+
+    <properties>
+        <smk-base.version>0.0.1-SNAPSHOT</smk-base.version>
+        <security-sdk-core.version>0.0.1-SNAPSHOT</security-sdk-core.version>
+        <security-sdk-tool.version>0.0.1-SNAPSHOT</security-sdk-tool.version>
+        <bcprov-jdk15on.version>1.66</bcprov-jdk15on.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.smk.cpp</groupId>
+                <artifactId>smk-base</artifactId>
+                <version>${smk-base.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smk.cpp</groupId>
+                <artifactId>security-sdk-core</artifactId>
+                <version>${security-sdk-core.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smk.cpp</groupId>
+                <artifactId>security-sdk-tool</artifactId>
+                <version>${security-sdk-tool.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${bcprov-jdk15on.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 依赖jar -->
+    <dependencies>
+    </dependencies>
+
+</project>

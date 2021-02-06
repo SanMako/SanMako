@@ -1,1 +1,13 @@
 /.idea/
+/Communal/smk-parent/smk-parent.iml
+/Communal/smk-parent/smk-security-parent/smk-security-parent.iml
+/Sdk/security-sdk/security-sdk-core/security-sdk-core.iml
+/Sdk/security-sdk/security-sdk-crypto/security-sdk-crypto.iml
+/Sdk/security-sdk/security-sdk.iml
+/Sdk/security-sdk/security-sdk-tool/security-sdk-tool.iml
+/Communal/smk-base/smk-base.iml
+/Sdk/security-sdk/security-sdk-tool/target/
+/Sdk/security-sdk/security-sdk-crypto/target/
+/Sdk/security-sdk/security-sdk-core/target/
+
+/Communal/smk-base/target/classes/com/smk/cpp/base/

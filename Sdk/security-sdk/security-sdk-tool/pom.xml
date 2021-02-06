@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.smk.cpp</groupId>
+        <artifactId>security-sdk</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>security-sdk-tool</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>security-sdk-tool</name>
+    <description>安全sdk加密解密工具包</description>
+
+    <!-- 依赖jar -->
+    <dependencies>
+        <dependency>
+            <groupId>com.smk.cpp</groupId>
+            <artifactId>security-sdk-core</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
