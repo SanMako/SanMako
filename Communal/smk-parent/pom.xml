@@ -27,9 +27,11 @@
         <spring-cloud.version>Hoxton.RELEASE</spring-cloud.version>
         <spring-boot-redis.version>2.3.2.RELEASE</spring-boot-redis.version>
         <fastjson.version>1.2.70</fastjson.version>
+        <bcprov-jdk15on.version>1.66</bcprov-jdk15on.version>
     </properties>
 
     <modules>
+        <module>smk-security-parent</module>
     </modules>
 
     <!-- 依赖管理 -->
@@ -48,6 +50,12 @@
                 <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
                 <version>${spring-boot-redis.version}</version>
             </dependency>
+            <!-- bouncycastle -->
+            <dependency>
+                <groupId>org.bouncycastle</groupId>
+                <artifactId>bcprov-jdk15on</artifactId>
+                <version>${bcprov-jdk15on.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -55,11 +63,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>${fastjson.version}</version>
         </dependency>
     </dependencies>
 
