@@ -35,6 +35,10 @@ public enum AlgorithmEnum implements IAlgorithmEnum {
 
     PBKDF2_WITH_HMAC_SHA512 ("PBKDF2WithHmacSHA512"),
 
+    RSA ("RSA"),
+
+    MD5_WITH_RSA ("MD5withRSA"),
+
     ;
 
     AlgorithmEnum(String algorithmName) {
