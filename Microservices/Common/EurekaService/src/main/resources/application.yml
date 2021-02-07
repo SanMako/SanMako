@@ -1,0 +1,33 @@
+server:
+  port: 36800
+
+spring:
+  application:
+    name: EurekaService
+  security:
+    user:
+      # 配置spring security登录用户名和密码
+      name: SanMako
+      password: a0747a8ebd1a758f21316734e9f2ffec4495cb0098b21b8bca071fa4304871f90d70f948128eeafc3b60e1a8a09f89bef28dcd9eb8ede26a279ee3f943b8  # EurekaService 密码不能带'@'
+      salt: f96948d89fee4bb899f1f9a1934fcb90
+      iterNum: 1000
+      key-length: 500
+
+eureka:
+  username: SanMako
+  password: a0747a8ebd1a758f21316734e9f2ffec4495cb0098b21b8bca071fa4304871f90d70f948128eeafc3b60e1a8a09f89bef28dcd9eb8ede26a279ee3f943b8
+  instance:
+    hostname: 127.0.0.1
+  client:
+    register-with-eureka: false #指定是否将服务注册到注册中心(注册中心不需要开启)
+    fetch-registry: false #指定是否从注册中心获取服务(注册中心不需要开启)
+    service-url:
+      defaultZone: http://${eureka.username}:${eureka.password}@${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    enable-self-preservation: false
+    wait-time-in-ms-when-sync-empty: 0
+
+jasypt:
+  encryptor:
+    #加密秘钥
+    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ7

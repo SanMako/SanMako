@@ -11,3 +11,7 @@
 /Sdk/security-sdk/security-sdk-core/target/
 
 /Communal/smk-base/target/classes/com/smk/cpp/base/
+/Microservices/Common/EurekaService/target/
+/Microservices/Common/EurekaService/EurekaService.iml
+/Communal/smk-parent/smk-micro-parent/smk-micro-parent.iml
+/Microservices/Manage/UserMgrService/UserService.iml

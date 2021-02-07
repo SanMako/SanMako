@@ -25,7 +25,7 @@ Here are some ideas to get you started:
 ## 项目目录介绍：
 
 | 目录名称 | 备注
-   | --------- | -------------
+| --------- | -------------
 | communal | 基础和公共服务
 | Doc | 项目文档归档
 | RestApi | rest API
