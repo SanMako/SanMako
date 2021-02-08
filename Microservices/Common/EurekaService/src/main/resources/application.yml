@@ -26,8 +26,3 @@ eureka:
   server:
     enable-self-preservation: false
     wait-time-in-ms-when-sync-empty: 0
-
-jasypt:
-  encryptor:
-    #加密秘钥
-    password: EbfYkitulv73I2p0mXI50JMXoaxZTKJ7

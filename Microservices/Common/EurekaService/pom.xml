@@ -29,7 +29,6 @@
         <dependency>
             <groupId>com.smk.cpp</groupId>
             <artifactId>security-sdk-crypto</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>
