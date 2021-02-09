@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+    scan: 当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+    scanPeriod: 设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+    debug: 当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+-->
+<configuration debug="true" scan="true" scanPeriod="60 seconds">
+    <!--
+         子节点<contextName>,用来设置上下文名称: 每个logger都关联到logger上下文，默认上下文名称为default。
+         但可以使用<contextName>设置成其他名字，用于区分不同应用程序的记录。一旦设置，不能修改。
+    -->
+    <contextName>server-standard</contextName>
+
+    <!-- 配置参数logDir读取application.yml中的log-dir属性，如果没有配置，默认是只logs -->
+    <springProperty scope="context" name="LOG_HOME" source="path.logs" defaultValue="logs" />
+    <springProperty scope="context" name="SERVER_NAME" source="spring.application.name" defaultValue="server-standard" />
+    <springProperty scope="context" name="DATASOURCE_DRIVER" source="spring.datasource.driver-class-name" defaultValue="com.mysql.cj.jdbc.Driver" />
+    <springProperty scope="context" name="DATASOURCE_URL" source="spring.datasource.url" defaultValue="jdbc:mysql://127.0.0.1:3306/threemake?useUnicode=true&amp;characterEncoding=utf-8&amp;zeroDateTimeBehavior=convertToNull&amp;serverTimezone=UTC" />
+    <springProperty scope="context" name="DATASOURCE_USERNAME" source="spring.datasource.username" defaultValue="root" />
+    <springProperty scope="context" name="DATASOURCE_PASSWORD" source="spring.datasource.password" defaultValue="515322" />
+
+    <!-- 设置变量FILE_PATH，用于指定名为FILE的appender的目的文件存放的目录 -->
+    <property name="description" value="开发规范服务" />
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!--encoder:将事件转换为字符串
+            默认配置为PatternLayoutEncoder类
+            encoder用于替代Layout，encoder扩展了Layout功能
+            Layout功能：只负责把事件转换为字符串，但是不能指定何时将记录写入到指定目的地
+            encoder功能：即负责把事件转换为字符串，也可以指定何时将记录写入到指定目的地
+         -->
+        <encoder>
+            <!-- 指定输出格式
+                %d{} :表示时间
+                %thread:请求记录所在的线程名
+                %-5level：用5位显示请求级别
+                %logger{36}：输出logger名，{36}表示logger名最大占用的字符位数，{0}表示最简短logger名（不包含包名）。
+             -->
+            <pattern>==>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level ==> %logger Line:%-3L ==> %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>debug</level>
+        </filter>
+    </appender>
+
+    <appender name="FILEINFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!-- $使用变量FILE_PATH的格式,类似Linux中使用的格式：${FILE_PATH} -->
+        <file>${LOG_HOME}/${SERVER_NAME}/${SERVER_NAME}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- 文件名 -->
+            <fileNamePattern>${LOG_HOME}/${SERVER_NAME}/info/log-info-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <maxHistory>${max.history:-30}</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+        </rollingPolicy>
+        <append>true</append>
+        <encoder>
+            <!-- 指定输出格式 -->
+            <pattern>==>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level ==> %logger Line:%-3L ==> %msg%n</pattern>
+            <charset>utf-8</charset>
+        </encoder>
+    </appender>
+
+    <logger name="org.springframework" level="info" />
+    <logger name="com.smk.cpp.*.*.dao" level="info" />
+
+    <!-- 开发环境时激活 -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+        <appender-ref ref="FILEINFO" />
+    </root>
+
+    <springProfile name="">
+        <root level="INFO">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILEINFO" />
+        </root>
+    </springProfile>
+
+    <!-- 开发环境时激活 -->
+    <springProfile name="local">
+        <root level="INFO">
+            <appender-ref ref="STDOUT" />
+            <appender-ref ref="FILEINFO" />
+        </root>
+    </springProfile>
+
+    <!-- 开发，测试的时候激活-->
+    <springProfile name="dev,test,security">
+        <root level="INFO">
+            <appender-ref ref="FILEINFO" />
+        </root>
+    </springProfile>
+
+    <!-- 当 "生产" 环境时，该配置不激活-->
+    <springProfile name="sit,pro,online">
+        <root level="INFO">
+            <appender-ref ref="FILEINFO" />
+        </root>
+    </springProfile>
+
+</configuration>
