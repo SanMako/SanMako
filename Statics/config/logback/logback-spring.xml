@@ -49,7 +49,7 @@
         <file>${LOG_HOME}/${SERVER_NAME}/${SERVER_NAME}.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- 文件名 -->
-            <fileNamePattern>${LOG_HOME}/${SERVER_NAME}/info/log-info-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
+            <fileNamePattern>${LOG_HOME}/${SERVER_NAME}/${SERVER_NAME}-%d{yyyy-MM-dd}-%i.log</fileNamePattern>
             <maxHistory>${max.history:-30}</maxHistory>
             <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
                 <maxFileSize>10MB</maxFileSize>
