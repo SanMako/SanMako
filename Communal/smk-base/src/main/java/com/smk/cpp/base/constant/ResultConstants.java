@@ -8,7 +8,7 @@ package com.smk.cpp.base.constant;
 /**
  * 功能描述:
  *
- * @ClassName: ComInfoConstant
+ * @ClassName: ResultConstants
  * @Author: Mr.Jin-晋
  * @Date: 2020-10-31 20:57
  * @Version: V1.0

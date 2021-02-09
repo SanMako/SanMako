@@ -3,19 +3,16 @@
 /**                      All rights reserved                           */
 /***********************************************************************/
 
-package com.smk.cpp.base.enums;
+package com.smk.cpp.security.crypto.service;
 
 /**
- * 功能描述:
- *
- * @ClassName: EnumTypes
- * @Author: Mr.Jin-晋
- * @Date: 2020-10-31 20:57
- * @Version: V1.0
- * @Dedscription:
+ * @title: PBKDF2Service
+ * @Version: V-0.0.1
+ * @description: TODO
  */
-public interface EnumTypes {
+public interface PBKDF2Service {
 
-    String getTypes();
+    String sign (String input, String salt, int iterationNum, int keyLength)
+            throws SecurityException;
 
 }
