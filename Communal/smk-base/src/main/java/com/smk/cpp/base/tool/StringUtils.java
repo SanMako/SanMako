@@ -10,7 +10,7 @@ import java.util.UUID;
 /**
  * 功能描述:
  *
- * @ClassName: ComInfoConstant
+ * @ClassName: StringUtils
  * @Author: Mr.Jin-晋
  * @Date: 2020-10-31 20:57
  * @Version: V1.0
