@@ -4,6 +4,8 @@ server:
 spring:
   application:
     name: EurekaService
+  profiles:
+    active: local
   security:
     user:
       # 配置spring security登录用户名和密码

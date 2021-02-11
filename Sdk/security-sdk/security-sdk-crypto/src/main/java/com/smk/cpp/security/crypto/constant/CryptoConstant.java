@@ -14,4 +14,8 @@ public interface CryptoConstant {
 
     String BOUNCY_CASTLE_PROVIDER = "BC";
 
+    String PRIVATE_KEY_PATH = System.getProperty("user.dir") + "/Statics/secret/private_key.pem";
+
+    String PUBLIC_KEY_PATH = System.getProperty("user.dir") + "/Statics/secret/public_key.pem";
+
 }

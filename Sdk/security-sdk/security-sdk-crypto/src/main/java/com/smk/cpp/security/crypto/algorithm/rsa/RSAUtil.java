@@ -54,11 +54,11 @@ public class RSAUtil {
     private static final String PRIVATE_KEY = "RSAPrivateKey";
     private static final int RSA_ENCRYPT_LENGTH = 2048;
 
-    public static byte[] decryptBASE64(String key) {
+    private static byte[] decryptBASE64(String key) {
         return BASE64Util.decryptByBASE64(key);
     }
 
-    public static String encryptBASE64(byte[] bytes) {
+    private static String encryptBASE64(byte[] bytes) {
         return BASE64Util.encryptByBASE64(bytes);
     }
 
@@ -201,7 +201,7 @@ public class RSAUtil {
      * @param data
      * @param key
      * @return
-     * @throws Exception
+     * @throws SecurityException
      */
     public static byte[] decryptByPublicKey(byte[] data, String key) throws SecurityException {
         try{
@@ -234,6 +234,19 @@ public class RSAUtil {
             logger.error("decryptByPublicKey ==> {}", invalidKeyException.getMessage());
             throw new SecurityException("key is inValid!");
         }
+    }
+
+    /**
+     * 解密<br>
+     * 用公钥解密
+     *
+     * @param data
+     * @param key
+     * @return
+     * @throws SecurityException
+     */
+    public static byte[] decryptByPublicKey(String data, String key) {
+        return decryptByPublicKey(decryptBASE64(data),key);
     }
 
     /**
@@ -338,7 +351,8 @@ public class RSAUtil {
      * @return
      */
     public static String getPrivateKey(String path) {
-        return FileUtil.loadKey(path);
+        String privateKey = FileUtil.loadKey(path);
+        return privateKey.substring(27, privateKey.length() - 25);
     }
 
     /**
@@ -359,7 +373,8 @@ public class RSAUtil {
      * @return
      */
     public static String getPublicKey(String path) {
-        return FileUtil.loadKey(path);
+        String publicKey = FileUtil.loadKey(path);
+        return publicKey.substring(26, publicKey.length() - 24);
     }
 
     /**

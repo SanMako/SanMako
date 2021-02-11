@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.smk.cpp.file.dao.FileMgrDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.smk.cpp.file.entity.FileEntity">
+
+    </resultMap>
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+    </sql>
+
+    <!-- 增 -->
+    <insert id="insertFileVo" parameterType="com.smk.cpp.file.entity.FileEntity">
+        insert into smk_sys_tbl_file
+            (
+                file_id,
+                original_file_name,
+                file_name,
+                relatively_path,
+                file_type,
+                system_id,
+                create_user,
+                create_time,
+                update_user,
+                update_time
+            )
+        values
+            (
+                #{fileId},
+                #{originalFilename},
+                #{filename},
+                #{relativelyPath},
+                #{fileType},
+                #{systemId},
+                #{createUser},
+                #{createTime},
+                #{updateUser},
+                #{updateTime}
+            )
+    </insert>
+
+    <!-- 改 -->
+    <update id="updateById" parameterType="com.smk.cpp.file.entity.FileEntity">
+        UPDATE smk_sys_tbl_file
+        <trim prefix="set" suffixOverrides=",">
+            <if test="fileId != null">file_id=#{fileId},</if>
+            <if test="originalFilename != null">original_file_name=#{originalFilename},</if>
+            <if test="filename != null">file_name=#{filename},</if>
+            <if test="relativelyPath != null">relatively_path=#{relativelyPath},</if>
+            <if test="fileType != null">file_type=#{fileType},</if>
+            <if test="systemId != null">system_id=#{systemId},</if>
+            <if test="createUser != null">create_user=#{createUser},</if>
+            <if test="createTime != null">create_time=#{createTime},</if>
+            <if test="updateUser != null">update_user=#{updateUser},</if>
+            <if test="updateTime != null">update_time=#{updateTime},</if>
+        </trim>
+        WHERE file_id=#{fileId}
+    </update>
+
+    <!-- 批量增 -->
+    <insert id="saveAllFile" parameterType="com.smk.cpp.file.entity.FileEntity">
+        insert into smk_sys_tbl_file
+            (
+                file_id,
+                original_file_name,
+                file_name,
+                relatively_path,
+                file_type,
+                system_id,
+                create_user,
+                create_time,
+                update_user,
+                update_time
+            )
+        values
+        <foreach collection="files" index="index" item="item">
+            (
+                #{item.fileId},
+                #{item.originalFilename},
+                #{item.filename},
+                #{item.relativelyPath},
+                #{item.fileType},
+                #{systemId}
+                #{createUser},
+                #{createTime},
+                #{updateUser},
+                #{updateTime}
+            );
+        </foreach>
+    </insert>
+
+    <!-- 删 -->
+    <delete id="deleteById" parameterType="java.lang.String">
+        delete from smk_sys_tbl_file where file_id = #{id}
+    </delete>
+
+    <!-- 查单个 -->
+    <select id="findById" resultType="com.smk.cpp.file.entity.FileEntity">
+        select
+            file_id as fileId,
+            original_file_name as originalFilename,
+            file_name as filename,
+            relatively_path as relativelyPath,
+            file_type as fileType,
+            system_id as systemId
+        from
+            smk_sys_tbl_file
+        where 1=1
+            <if test="id != null and id != ''">
+                and file_id = #{id}
+            </if>
+    </select>
+
+    <select id="getFilesByIds" resultType="com.smk.cpp.file.entity.FileEntity">
+        select
+            file_id as fileId,
+            original_file_name as originalFilename,
+            file_name as filename,
+            relatively_path as relativelyPath,
+            file_type as fileType,
+            system_id as systemId
+        from
+            smk_sys_tbl_file
+        where 1=1 and file_id in
+        <foreach collection="list" index="index" item="fileId" open="(" separator="," close=")">
+            #{fileId}
+        </foreach>
+        order by create_time desc
+    </select>
+
+</mapper>
