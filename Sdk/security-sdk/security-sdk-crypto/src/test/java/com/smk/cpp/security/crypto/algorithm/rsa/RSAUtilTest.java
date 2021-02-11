@@ -6,6 +6,7 @@
 package com.smk.cpp.security.crypto.algorithm.rsa;
 
 import com.smk.cpp.security.crypto.algorithm.base64.BASE64Util;
+import com.smk.cpp.security.crypto.constant.CryptoConstant;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -26,9 +27,15 @@ public class RSAUtilTest {
     private static final Logger logger = LoggerFactory.getLogger(RSAUtilTest.class);
 
     public static void main(String[] args) throws Exception {
+
+        logger.info(System.getProperty("user.dir"));
+
         Map<String, Key> keyMap = RSAUtil.initKey();
-        String publicKey = RSAUtil.getPublicKey(keyMap);
-        String privateKey = RSAUtil.getPrivateKey(keyMap);
+//        String publicKey = RSAUtil.getPublicKey(keyMap);
+//        String privateKey = RSAUtil.getPrivateKey(keyMap);
+
+        String publicKey = RSAUtil.getPublicKey(CryptoConstant.PUBLIC_KEY_PATH);
+        String privateKey = RSAUtil.getPrivateKey(CryptoConstant.PRIVATE_KEY_PATH);
 
         logger.info(String.valueOf(keyMap));
         logger.info("-----------------------------------");
@@ -37,10 +44,10 @@ public class RSAUtilTest {
         logger.info(privateKey);
         logger.info("-----------------------------------");
         byte[] encryptByPrivateKey = RSAUtil.encryptByPrivateKey("123456".getBytes(),privateKey);
-        byte[] encryptByPublicKey = RSAUtil.encryptByPublicKey("123456",publicKey);
+        byte[] encryptByPublicKey = RSAUtil.encryptByPublicKey("Smk$!1121.", publicKey);
         logger.info(BASE64Util.encryptByBASE64(encryptByPrivateKey));
         logger.info("-----------------------------------");
-        logger.info(BASE64Util.encryptByBASE64(encryptByPublicKey));
+        logger.info("public ==> " + BASE64Util.encryptByBASE64(encryptByPublicKey));
         logger.info("-----------------------------------");
         String sign = RSAUtil.sign(encryptByPrivateKey,privateKey);
         logger.info(sign);

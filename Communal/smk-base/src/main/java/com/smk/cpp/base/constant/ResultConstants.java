@@ -16,9 +16,13 @@ package com.smk.cpp.base.constant;
  */
 public interface ResultConstants {
 
-    public static final Integer SUCCESS_CODE = 32000;
+    Integer SUCCESS_CODE = 32000;
 
-    public static final String OPERATE_SUCCESS = "operate success.";
+    Integer INTERNAL_SERVER_ERROR = 35000;
+
+    String OPERATE_SUCCESS = "operate success.";
+
+    String PARAM_CHECK_ERROR = "param.check.error";
 
     /**
      * 状态码

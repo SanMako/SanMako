@@ -1,0 +1,42 @@
+server:
+  port: 36840
+  servlet:
+    context-path: /FileMgrService
+
+spring:
+  application:
+    name: FileMgrService
+  messages:
+    basename: i18n/file
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/sanmako?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+    username: root
+    password: encrypt[oon5K5JtmXic7Pls28jbCxajJx7ypj2K4ZP6tfHF36wm1vizYjOvSL3QQvmZQiqjR58LmFEmQQvj18vjvRkBX1x7jtuK5Reto6tSF5oK+nf/hNxIVX2jafBD4yh0FjQ/HzVHQfuA9x74ST0PRzYTONdn6kZ1TCMGA/tWEqDQA695sIgiIfuh0GxLIrVmTnIe1LQXJCufK1wTvZem8K0GEI7G/sCkftueMPrvrZ7uxZ8DdY4x0TrgXGIEwmv1YwWMhWvdRNk5Uyi//55GCtSo9YoVQZ3sYuGpVz7ktyqRCcwr+oG08QDMnPmM2n4H/ajo+9Y2+CkNwSjgZizMa4cQdQ==]
+
+eureka:
+  username: SanMako
+  password: encrypt[qFOH4vmgQRCDvrt4HWiT4s8PXgoUw9z6vErIbLj/WIETmCSknaSZAjT4PU1iBcP6MaT0KU7qZpIIhbrSctEAof5aaPZXVBFSa4xXEbM4fcAQ2+WAR/AcTKCMynnoNl4GdnhRfPrYyI7xvuZltph0zz4Ke3T/ay8kNRcC0YHC9aJufKhQpNLRoOUv0IFKmB1XRdfK/a56oxfPJm1p4yTqIdJ5eH01h18dN8BOg8K51H1ufKp8GLGUOAROvsDF6ChXsEx4pww7hWhcwiA5foLVz/Z9sCp1dQpG080sJvvydDk1bYQbfwoFVI7GV6bSXO9A2iguDhrUwNxcM6IodGVBXw==]
+  instance:
+    prefer-ip-address: true
+    hostname: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://${eureka.username}:${eureka.password}@${eureka.instance.hostname}:36800/eureka/
+
+mybatis:
+  mapper-locations: classpath*:mappers/*.xml
+
+logging:
+  config: Statics/config/logback/logback-spring.xml
+
+path:
+  logs: Statics/smk-logs
+
+files:
+  upload:
+    base-dir: Statics/upload
+

@@ -16,7 +16,7 @@ import java.util.UUID;
  * @Version: V1.0
  * @Dedscription:
  */
-public class StringUtils {
+public class StringTools {
 
     public static final String idGenerate(){
         return UUID.randomUUID().toString().replaceAll("-","");
