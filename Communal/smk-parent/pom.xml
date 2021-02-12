@@ -33,6 +33,7 @@
         <druid.version>1.2.2</druid.version>
         <smk-common.version>0.0.1-SNAPSHOT</smk-common.version>
         <security-sdk.version>0.0.1-SNAPSHOT</security-sdk.version>
+        <swagger.version>2.9.2</swagger.version>
     </properties>
 
     <modules>
@@ -80,6 +81,17 @@
                 <groupId>com.alibaba</groupId>
                 <artifactId>druid-spring-boot-starter</artifactId>
                 <version>${druid.version}</version>
+            </dependency>
+            <!-- swagger2  -->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${swagger.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.smk.cpp</groupId>

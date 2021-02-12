@@ -44,7 +44,7 @@ public class RSAUtilTest {
         logger.info(privateKey);
         logger.info("-----------------------------------");
         byte[] encryptByPrivateKey = RSAUtil.encryptByPrivateKey("123456".getBytes(),privateKey);
-        byte[] encryptByPublicKey = RSAUtil.encryptByPublicKey("Smk$!1121.", publicKey);
+        byte[] encryptByPublicKey = RSAUtil.encryptByPublicKey("515322", publicKey);
         logger.info(BASE64Util.encryptByBASE64(encryptByPrivateKey));
         logger.info("-----------------------------------");
         logger.info("public ==> " + BASE64Util.encryptByBASE64(encryptByPublicKey));

@@ -36,4 +36,10 @@ public interface CompanyInfoConstants {
      */
     String SMK_CONTACT_EMAIL = "西安三码客软件科技有限公司<sanmako@163.com>";
 
+    String SMK_COMMON_VERSION = "smk.software.common.version";
+
+    String API_INFO_TITLE_KEY = "swagger.api.info.title";
+
+    String API_INFO_DESC_KEY = "swagger.api.info.desc";
+
 }

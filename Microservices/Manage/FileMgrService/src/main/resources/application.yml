@@ -2,6 +2,14 @@ server:
   port: 36840
   servlet:
     context-path: /FileMgrService
+  ssl:
+    enabled: true        # Enable SSL support.  默认开启
+    client-auth: WANT   # Whether client authentication is wanted ("want"-不强制) or needed ("need"-强制). Requires a trust store.
+    key-alias: sslhttps           # Alias that identifies the key in the key store. 别名
+    # Password used to access the key in the key store.  密码
+    key-store-password: encrypt[VgoQ60e5cxXqAaL5k3L2YGaAkVJv4iUOQvKzlHgC4MccZeJS/vW49XVtH6bWOxdTHnxuXjw68pEt3KWDthnk38efeXb2Yp74rD1ZQouYo2kaJCKeLN5l29b21QI9L8OqzNsnYWvMwTSWwlpuX3IS6jcjIKYsVXeCgBo77KV7nVYbH0YkyktZRXoCntCc2eO9fuNLvTW6Ox8sNXEW9Fo8ZHuevvtZf7lB6TG1gd/80r37zkoR+F6dyQiI1kbeBYRwbG4RLMsxF1XXmo989JiTJBRg4wf/Q7bTuOaVqXQP85ZBx/4OGeSBXl/67QURsRa4ZOUg3TK0NXrY1NWFgnWoTA==]
+    key-store: classpath:secret/smkssl.jks   # Path to the key store that holds the SSL certificate (typically a jks file).
+    trust-store-type: JKS         # Type of the trust store.
 
 spring:
   application:
@@ -39,4 +47,7 @@ path:
 files:
   upload:
     base-dir: Statics/upload
+
+swagger:
+    enable: true
 

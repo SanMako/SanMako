@@ -6,9 +6,7 @@
 package com.smk.cpp.file.config;
 
 import com.smk.cpp.file.resolver.EncryptResolver;
-import com.ulisesbocchio.jasyptspringboot.EncryptablePropertyDetector;
 import com.ulisesbocchio.jasyptspringboot.EncryptablePropertyResolver;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -23,11 +21,6 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class JasyptConfig {
-
-//    @Bean
-//    public EncryptablePropertyDetector encryptablePropertyDetector() {
-//        return new EncryptDetector();
-//    }
 
     @Bean
     public EncryptablePropertyResolver encryptablePropertyResolver() {
