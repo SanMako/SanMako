@@ -9,11 +9,11 @@
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>FileMgrService</artifactId>
+    <artifactId>AuditMgrService</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>smk-file</name>
-    <description>文件管理中心</description>
+    <name>smk-audit</name>
+    <description>审计日志管理服务</description>
 
     <!-- 依赖jar -->
     <dependencies>
@@ -31,11 +31,6 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.smk.cpp</groupId>
-            <artifactId>ManageCommon</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

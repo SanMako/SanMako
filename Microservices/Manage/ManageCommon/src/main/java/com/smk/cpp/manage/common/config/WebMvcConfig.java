@@ -3,9 +3,9 @@
 /**                      All rights reserved                           */
 /***********************************************************************/
 
-package com.smk.cpp.file.config;
+package com.smk.cpp.manage.common.config;
 
-import com.smk.cpp.file.resolver.SmkLocaleResolver;
+import com.smk.cpp.manage.common.resolver.SmkLocaleResolver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

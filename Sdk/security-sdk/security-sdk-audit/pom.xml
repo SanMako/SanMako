@@ -4,19 +4,34 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.smk.cpp</groupId>
-        <artifactId>smk-micro-parent</artifactId>
+        <artifactId>security-sdk</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>FileMgrService</artifactId>
+    <artifactId>security-sdk-audit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
 
-    <name>smk-file</name>
-    <description>文件管理中心</description>
+    <name>security-sdk-audit</name>
+    <description>安全sdk审计日志和安全日志</description>
 
     <!-- 依赖jar -->
     <dependencies>
+        <dependency>
+            <groupId>com.smk.cpp</groupId>
+            <artifactId>smk-base</artifactId>
+        </dependency>
+        <!-- aop -->
+        <!-- 用于本模块中对controller的拦截器 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+        </dependency>
         <!-- mybatis -->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -33,9 +48,14 @@
             <scope>runtime</scope>
         </dependency>
         <dependency>
-            <groupId>com.smk.cpp</groupId>
-            <artifactId>ManageCommon</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <version>1.5.20</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

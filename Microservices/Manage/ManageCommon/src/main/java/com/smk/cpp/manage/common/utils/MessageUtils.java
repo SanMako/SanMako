@@ -3,7 +3,7 @@
 /**                      All rights reserved                           */
 /***********************************************************************/
 
-package com.smk.cpp.file.utils;
+package com.smk.cpp.manage.common.utils;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

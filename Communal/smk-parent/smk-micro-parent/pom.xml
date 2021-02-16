@@ -58,5 +58,9 @@
             <groupId>com.smk.cpp</groupId>
             <artifactId>security-sdk-crypto</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.smk.cpp</groupId>
+            <artifactId>security-sdk-audit</artifactId>
+        </dependency>
     </dependencies>
 </project>

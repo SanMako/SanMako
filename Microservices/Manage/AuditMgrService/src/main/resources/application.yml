@@ -1,0 +1,49 @@
+server:
+  port: 36850
+  servlet:
+    context-path: /AuditMgrService
+  ssl:
+    enabled: true        # Enable SSL support.  默认开启
+    client-auth: WANT   # Whether client authentication is wanted ("want"-不强制) or needed ("need"-强制). Requires a trust store.
+    key-alias: sslhttps           # Alias that identifies the key in the key store. 别名
+    # Password used to access the key in the key store.  密码
+    key-store-password: encrypt[VgoQ60e5cxXqAaL5k3L2YGaAkVJv4iUOQvKzlHgC4MccZeJS/vW49XVtH6bWOxdTHnxuXjw68pEt3KWDthnk38efeXb2Yp74rD1ZQouYo2kaJCKeLN5l29b21QI9L8OqzNsnYWvMwTSWwlpuX3IS6jcjIKYsVXeCgBo77KV7nVYbH0YkyktZRXoCntCc2eO9fuNLvTW6Ox8sNXEW9Fo8ZHuevvtZf7lB6TG1gd/80r37zkoR+F6dyQiI1kbeBYRwbG4RLMsxF1XXmo989JiTJBRg4wf/Q7bTuOaVqXQP85ZBx/4OGeSBXl/67QURsRa4ZOUg3TK0NXrY1NWFgnWoTA==]
+    key-store: classpath:secret/smkssl.jks   # Path to the key store that holds the SSL certificate (typically a jks file).
+    trust-store-type: JKS         # Type of the trust store.
+
+spring:
+  application:
+    name: AuditMgrService
+  messages:
+    basename: i18n/audit
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://127.0.0.1:3306/sanmako?useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&serverTimezone=UTC
+    username: root
+    password: encrypt[oon5K5JtmXic7Pls28jbCxajJx7ypj2K4ZP6tfHF36wm1vizYjOvSL3QQvmZQiqjR58LmFEmQQvj18vjvRkBX1x7jtuK5Reto6tSF5oK+nf/hNxIVX2jafBD4yh0FjQ/HzVHQfuA9x74ST0PRzYTONdn6kZ1TCMGA/tWEqDQA695sIgiIfuh0GxLIrVmTnIe1LQXJCufK1wTvZem8K0GEI7G/sCkftueMPrvrZ7uxZ8DdY4x0TrgXGIEwmv1YwWMhWvdRNk5Uyi//55GCtSo9YoVQZ3sYuGpVz7ktyqRCcwr+oG08QDMnPmM2n4H/ajo+9Y2+CkNwSjgZizMa4cQdQ==]
+
+eureka:
+  username: SanMako
+  password: encrypt[qFOH4vmgQRCDvrt4HWiT4s8PXgoUw9z6vErIbLj/WIETmCSknaSZAjT4PU1iBcP6MaT0KU7qZpIIhbrSctEAof5aaPZXVBFSa4xXEbM4fcAQ2+WAR/AcTKCMynnoNl4GdnhRfPrYyI7xvuZltph0zz4Ke3T/ay8kNRcC0YHC9aJufKhQpNLRoOUv0IFKmB1XRdfK/a56oxfPJm1p4yTqIdJ5eH01h18dN8BOg8K51H1ufKp8GLGUOAROvsDF6ChXsEx4pww7hWhcwiA5foLVz/Z9sCp1dQpG080sJvvydDk1bYQbfwoFVI7GV6bSXO9A2iguDhrUwNxcM6IodGVBXw==]
+  instance:
+    prefer-ip-address: true
+    hostname: 127.0.0.1
+  client:
+    service-url:
+      defaultZone: http://${eureka.username}:${eureka.password}@${eureka.instance.hostname}:36800/eureka/
+
+mybatis:
+  mapper-locations: classpath*:mappers/*.xml
+
+logging:
+  config: Statics/config/logback/logback-spring.xml
+
+path:
+  logs: Statics/smk-logs
+
+swagger:
+  enable: true
+

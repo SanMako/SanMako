@@ -3,7 +3,7 @@
 /**                      All rights reserved                           */
 /***********************************************************************/
 
-package com.smk.cpp.file.resolver;
+package com.smk.cpp.manage.common.resolver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

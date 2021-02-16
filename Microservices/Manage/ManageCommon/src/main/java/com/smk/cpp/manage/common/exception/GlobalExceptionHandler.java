@@ -3,13 +3,12 @@
 /**                      All rights reserved                           */
 /***********************************************************************/
 
-package com.smk.cpp.file.exception;
+package com.smk.cpp.manage.common.exception;
 
 import com.smk.cpp.base.constant.ResultConstants;
 import com.smk.cpp.base.exception.BaseException;
 import com.smk.cpp.base.model.ResultVo;
 import com.smk.cpp.common.util.result.ResultUtil;
-import com.smk.cpp.file.constant.StatusConstant;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -28,7 +27,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
  */
 @Order(-1)
 @ControllerAdvice
-public class FileMgrExceptionHandler {
+public class GlobalExceptionHandler {
 
     /**
      * 拦截业务异常

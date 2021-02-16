@@ -20,6 +20,7 @@
         <module>security-sdk-core</module>    <!-- 安全sdk核心包 -->
         <module>security-sdk-crypto</module>  <!-- 安全sdk加密解密 -->
         <module>security-sdk-tool</module>    <!-- 安全sdk工具包 -->
+        <module>security-sdk-audit</module>   <!-- 安全sdk日志包 -->
     </modules>
 
     <properties>

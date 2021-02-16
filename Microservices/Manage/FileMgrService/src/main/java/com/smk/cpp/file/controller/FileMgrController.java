@@ -38,10 +38,11 @@ public class FileMgrController extends BaseController {
     @Autowired
     private FileMgrService fileMgrService;
 
-    @GetMapping("/{id}")
     @ResponseBody
+    @GetMapping("/{id}")
     @ApiOperation(value = "根据单个文件信息详情")
     public ResultVo<FileEntity> findById(@PathVariable final String id) {
+        logger.info("findbyid");
         final FileEntity fileVo = fileMgrService.findById(id);
         return ResultUtil.success(fileVo);
     }

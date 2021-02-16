@@ -3,9 +3,9 @@
 /**                      All rights reserved                           */
 /***********************************************************************/
 
-package com.smk.cpp.file.config;
+package com.smk.cpp.manage.common.config;
 
-import com.smk.cpp.file.resolver.EncryptResolver;
+import com.smk.cpp.manage.common.resolver.EncryptResolver;
 import com.ulisesbocchio.jasyptspringboot.EncryptablePropertyResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

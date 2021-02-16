@@ -3,7 +3,7 @@
 /**                      All rights reserved                           */
 /***********************************************************************/
 
-package com.smk.cpp.file.resolver;
+package com.smk.cpp.manage.common.resolver;
 
 import com.smk.cpp.security.crypto.service.RSAService;
 import com.ulisesbocchio.jasyptspringboot.EncryptablePropertyResolver;

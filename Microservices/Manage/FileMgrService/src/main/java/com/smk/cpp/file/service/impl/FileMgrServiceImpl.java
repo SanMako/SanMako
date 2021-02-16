@@ -14,7 +14,7 @@ import com.smk.cpp.file.entity.FileEntity;
 import com.smk.cpp.file.exception.FileMgrException;
 import com.smk.cpp.file.properties.FileProperties;
 import com.smk.cpp.file.service.FileMgrService;
-import com.smk.cpp.file.utils.MessageUtils;
+import com.smk.cpp.manage.common.utils.MessageUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

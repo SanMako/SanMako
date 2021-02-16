@@ -32,7 +32,8 @@
         <mybatis.version>2.1.3</mybatis.version>
         <druid.version>1.2.2</druid.version>
         <smk-common.version>0.0.1-SNAPSHOT</smk-common.version>
-        <security-sdk.version>0.0.1-SNAPSHOT</security-sdk.version>
+        <security-sdk-crypto.version>0.0.1-SNAPSHOT</security-sdk-crypto.version>
+        <security-sdk-audit.version>0.0.1-SNAPSHOT</security-sdk-audit.version>
         <swagger.version>2.9.2</swagger.version>
     </properties>
 
@@ -101,7 +102,12 @@
             <dependency>
                 <groupId>com.smk.cpp</groupId>
                 <artifactId>security-sdk-crypto</artifactId>
-                <version>${security-sdk.version}</version>
+                <version>${security-sdk-crypto.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.smk.cpp</groupId>
+                <artifactId>security-sdk-audit</artifactId>
+                <version>${security-sdk-audit.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -112,5 +118,10 @@
             <artifactId>spring-boot-starter-test</artifactId>
         </dependency>
     </dependencies>
+
+    <build>
+        <plugins>
+        </plugins>
+    </build>
 
 </project>
